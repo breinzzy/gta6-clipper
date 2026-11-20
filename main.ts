@@ -27,3 +27,7 @@ try {
   console.error(`VIDEO.json could not be copied from ${BOT_DIR}: ${(err as Error).message}`);
   process.exit(1);
 }
+
+// The gate runs this with /bot holding the repository and /output as the destination;
+// the copy above is the whole job. A missing VIDEO.json fails loudly instead of shipping
+// an empty output, so a broken entry is caught before it is ever scored.
